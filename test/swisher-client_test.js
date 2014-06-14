@@ -1,6 +1,6 @@
 'use strict';
 
-var swisher_client = require('../lib/SwisherClient.js');
+var swisher_client = require('../lib/swisher-client.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
