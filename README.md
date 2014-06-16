@@ -6,21 +6,106 @@ NodeJS Client library of Swisher platform
 Install the module with: `npm install swisher-client`
 
 ```javascript
-var swisher_client = require('swisher-client');
-swisher_client.awesome(); // "awesome"
+
+var swisher_client = require('swisher-client'),
+    dbService = swisher_client.DataBase("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
 ```
 
 ## Documentation
-_(Coming soon)_
 
-## Examples
-_(Coming soon)_
+### DataBase Service
+Document Storage Service.
+
+#### swisher_client.DataBase("appSecret", "appId", [options]);
+
+```javascript
+
+var swisher_client = require('swisher-client'),
+    dbService = swisher_client.DataBase("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
+```
+
+#### dbService.create(data, callback)
+
+```javascript
+
+dbService.create({"name":"John","age":"30"}, function(err){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+#### dbService.read(find, callback)
+
+```javascript
+
+dbService.read({"name":"John"}, function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+#### dbService.reads(find, callback)
+
+```javascript
+
+dbService.reads({"name":"John"}, function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+#### dbService.update(find, data, callback)
+
+```javascript
+
+dbService.update({"name":"John"}, {"age":"45"}, function(err){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+#### dbService.delete(find, callback)
+
+```javascript
+
+dbService.delete({"name":"John"}, function(err){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+### SMS
+...
+### Email
+...
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+@Author : Gihan Karunarathne
+@Email  : gckarunarathne@gmail.com
 
 ## Release History
-_(Nothing yet)_
+_0.1.4_
 
 ## License
 Copyright (c) 2014 Gihan Karunarathne  
