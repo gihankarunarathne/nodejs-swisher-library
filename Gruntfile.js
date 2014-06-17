@@ -7,6 +7,11 @@ module.exports = function(grunt) {
     nodeunit: {
       files: ['test/**/*_test.js'],
     },
+    mochaTest: {
+      test: {
+        src: ['test/**/*_test.js']
+      }
+    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -41,8 +46,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit']);
+  grunt.registerTask('default', ['jshint', 'nodeunit', 'mochaTest']);
 
 };
