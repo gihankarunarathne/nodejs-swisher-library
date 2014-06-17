@@ -6,6 +6,7 @@
 ## Getting Started
 Install the module with: `npm install swisher-client`
 
+Example :
 ```javascript
 
 var swisher_client = require('swisher-client'),
@@ -13,11 +14,35 @@ var swisher_client = require('swisher-client'),
       grantType : "access_token",
       scope     : "test"
     });
+
+dbService.create({"name":"John","age":"30"}, function(err){
+  if (err) {
+    // Handle Error Here
+  } else {
+     // -- Code Here
+  }
+});
+
+dbService.read({"name":"John"}, function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
 ```
 
 ## Documentation
 
-### DataBase Service
+Following Web Services are available in Swisher Platform.
+
+1. [DataBase Service](#database-service)
+2. [SMS Service](#sms-service)
+3. [Email Service](#email-service)
+4. [Scheduler Service](#scheduler-service)
+5. [Notification Service](#notification-service)
+
+### 1. DataBase Service
 Document Storage Service.
 
 #### swisher_client.DataBase("appSecret", "appId", [options]);
@@ -32,6 +57,9 @@ var swisher_client = require('swisher-client'),
 ```
 
 #### dbService.create(data, callback)
+Parameters:
+###### data (JSON)
+Document to be created/added. Should be a valid JSON object.
 
 ```javascript
 
@@ -45,6 +73,9 @@ dbService.create({"name":"John","age":"30"}, function(err){
 ```
 
 #### dbService.read(find, callback)
+Parameters:
+###### find (JSON)
+JSON query to find the document in the storage.
 
 ```javascript
 
@@ -57,11 +88,14 @@ dbService.read({"name":"John"}, function(err, result){
 });
 ```
 
-#### dbService.reads(find, callback)
+#### dbService.reads(find, [optional], callback)
+Parameters:
+###### find (JSON)
+JSON query to find the document in the storage.
 
 ```javascript
 
-dbService.reads({"name":"John"}, function(err, result){
+dbService.reads({"name":"John"}, {}, function(err, result){
   if (err) {
     // Handle Error Here
   } else {
@@ -71,6 +105,12 @@ dbService.reads({"name":"John"}, function(err, result){
 ```
 
 #### dbService.update(find, data, callback)
+Parameters:
+###### find (JSON)
+JSON query to find the document in the storage.
+
+###### data (JSON)
+Document to be created/added. Should be a valid JSON object.
 
 ```javascript
 
@@ -84,6 +124,9 @@ dbService.update({"name":"John"}, {"age":"45"}, function(err){
 ```
 
 #### dbService.delete(find, callback)
+Parameters:
+###### find (JSON)
+JSON query to find the document in the storage.
 
 ```javascript
 
@@ -96,10 +139,17 @@ dbService.delete({"name":"John"}, function(err){
 });
 ```
 
-### SMS
+### 2. SMS
 ...
-### Email
+
+### 3. Email
 ...
+
+### 4. Scheduler
+
+
+### 5. Notification
+
 
 ## Contributing
 @Author : Gihan Karunarathne
