@@ -4,6 +4,9 @@
 
 *.sublime*
 
+# Tests
+config-test*
+
 # Logs
 logs
 *.log
