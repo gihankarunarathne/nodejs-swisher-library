@@ -24,7 +24,7 @@ var dbService;
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    dbService = DataBase.DataBase("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    dbService = DataBase.DataBase("2270eecb5618229b48b78dae7807375aad80a57a", "7", {
       grantType: "access_token",
       scope: "test"
     });
@@ -112,9 +112,9 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Reads: ', function () {
     it('Basic reads operation.', function (done) {
 
-      dbService.reads({"name": "John"}, function (err, result) {
+      dbService.reads({"name": "John"}, {"fsd":"fsdf"}, function (err, result) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return error obj : " + JSON.stringify(err));
         } else {
           assert.ok(result.length == 0, "Should not return any thing for successful operation.");
           done();
