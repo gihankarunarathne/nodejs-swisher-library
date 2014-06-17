@@ -101,8 +101,23 @@ dbService.read({"name":"John"}, function(err, result){
 
 ### dbService.reads(find, [optional], callback)
 Parameters:
+
 #### find (JSON)
 JSON query to find the document in the storage.
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* **fields (JSON object)**
+Parameter specifies which fields to return.
+The parameter contains either include or exclude specifications, not both, unless the exclude is for the _id field.
+
+* **limit (number)**
+Limits the number of documents in the results set.
+
+* **skip (number)**
+Sets the starting point of the results set.
+
 
 ```javascript
 
@@ -219,10 +234,10 @@ Message that you want to send. This should be specified as a json array.
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* cc (Array of JSON objects)
+* **cc (Array of JSON objects)**
 Carbon Copy address. This also should be specified as a json array.
 
-* bcc (Array of JSON objects)
+* **bcc (Array of JSON objects)**
 Blind Carbon Copy address. This also should be specified as a json array.
 
 ```javascript
@@ -292,40 +307,40 @@ Start date of the scheduling event in the format yyyy-MM-dd.
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* description (String)
+* **description (String)**
 Short description of the scheduler event(Max:1000 characters).
 
-* startTime (String)
+* **startTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.If this not given then event will consider as a whole
  day event starting from 00:00:00.
 
-* endDate (String)
+* **endDate (String)**
 Start date of the scheduling event in the format yyyy-MM-dd.
 
-* endTime (String)
+* **endTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.If this not given then event will consider as a whole
  day event starting from 00:00:00.
 
-* location (String)
+* **location (String)**
 Location of the current event.
 
-* organizer (String)
+* **organizer (String)**
 Email Address of the event organizer if available.
 
-* attendees (String)
+* **attendees (String)**
 Array of email addresses who attending to current event.These email will get a notification if specified.
 
-* notifyTypes (String)
+* **notifyTypes (String)**
 If provided then attendees will get a notification according to the time threshold of the event.Valid notify types
 are ['email','sms','push'].
 
-* notifyNumbers (String)
+* **notifyNumbers (String)**
 If notifyType provided as SMS then these are the numbers get notified.
 
-* callbackLink (String)
+* **callbackLink (String)**
 If provided then this url will called (GET request) according to the threshold time.
 
-* thresholds (String)
+* **thresholds (String)**
 Threshold value ( when to fire the event before it happens).This must be a integer and it will be considered as minutes.
 ex:5 (this means event will send notifications and execute callBackLink before 5 minutes of its start time).
 
@@ -377,32 +392,32 @@ Parameters:
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* title (String)
+* **title (String)**
 Title of the scheduler event ( Max:500 characters).
 
-* description (String)
+* **description (String)**
 Short description of the scheduler event(Max:1000 characters).
 
-* timeZone (String)
+* **timeZone (String)**
 TimeZone to process the start/end Times( Timezone should be standards TZ string values
 from [TIMEZONES](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) ).
 ex: Asia/Colombo
 
-* startDate (String)
+* **startDate (String)**
 Start date of the scheduling event in the format yyyy-MM-dd.
 
-* startTime (String)
+* **startTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.
 If this not given then event will consider as a whole day event starting from 00:00:00.
 
-* endDate (String)
+* **endDate (String)**
 Start date of the scheduling event in the format yyyy-MM-dd.
 
-* endTime (String)
+* **endTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.
 If this not given then event will consider as a whole day event starting from 00:00:00.
 
-* organizer (String)
+* **organizer (String)**
 Email Address of the event organizer if available.
 
 ```javascript
@@ -424,32 +439,32 @@ Parameters:
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* title (String)
+* **title (String)**
 Title of the scheduler event ( Max:500 characters).
 
-* description (String)
+* **description (String)**
 Short description of the scheduler event(Max:1000 characters).
 
-* timeZone (String)
+* **timeZone (String)**
 TimeZone to process the start/end Times( Timezone should be standards TZ string values
 from [TIMEZONES](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) ).
 ex: Asia/Colombo
 
-* startDate (String)
+* **startDate (String)**
 Start date of the scheduling event in the format yyyy-MM-dd.
 
-* startTime (String)
+* **startTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.
 If this not given then event will consider as a whole day event starting from 00:00:00.
 
-* endDate (String)
+* **endDate (String)**
 Start date of the scheduling event in the format yyyy-MM-dd.
 
-* endTime (String)
+* **endTime (String)**
 Start time of the scheduling event in the 24 hour format HH:mm:ss.
 If this not given then event will consider as a whole day event starting from 00:00:00.
 
-* organizer (String)
+* **organizer (String)**
 Email Address of the event organizer if available.
 
 ```javascript
@@ -491,7 +506,7 @@ Message to deliver among users who are registered and subscribe to a specific ch
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* deliverOffline (boolean)
+* **deliverOffline (boolean)**
 Sending offline messages (true/false).When it is true offline messages will deliver to particular channel.
 
 ```javascript
@@ -517,7 +532,7 @@ Message to deliver among users who are registered and subscribe to a specific ch
 #### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
-* deliverOffline (boolean)
+* **deliverOffline (boolean)**
 Sending offline messages (true/false).When it is true offline messages will deliver to particular channel.
 
 ```javascript
