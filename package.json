@@ -1,7 +1,7 @@
 {
   "name": "swisher-client",
   "description": "NodeJS Client library of Swisher platform",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/gihankarunarathne/nodejs-swisher-library",
   "author": {
     "name": "Gihan Karunarathne",
