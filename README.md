@@ -4,7 +4,11 @@
 "swisher.io" is under construction. It will be available for public usage in next month.
 
 # Getting Started
-Install the module with: `npm install swisher-client`
+
+* Get register on [Swisher Platform](http://swisher.io/)
+* Create a new application (It'll provide an Application Secret and an Application ID)
+* Install the module with: `npm install swisher-client`
+* Read following documentation for more details
 
 Example :
 
@@ -255,10 +259,10 @@ email.send(
 SMS Service.
 
 * [Constructor](#swisher_clientschedulerappsecret-appid-options)
-* [Insert]
-* [Get]
-* [List]
-* [Delete]
+* [Insert](#schedulerinserttitle-timezone-startdate-optional-callback)
+* [Get](#schedulerget_id-callback)
+* [List](#schedulerlistoptional-callback)
+* [Delete](#schedulerdeleteoptional-callback)
 
 ### swisher_client.Scheduler("appSecret", "appId", [options])
 
