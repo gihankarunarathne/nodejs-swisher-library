@@ -5,7 +5,8 @@
 *.sublime*
 
 # Tests
-config-test*
+config-local.*
+config_test.json
 
 # Logs
 logs

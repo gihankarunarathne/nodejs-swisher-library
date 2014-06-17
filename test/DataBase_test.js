@@ -17,14 +17,15 @@
 'use strict';
 
 var DataBase = require('../lib/DataBase'),
-  assert = require('assert');
+  assert = require('assert'),
+  testConf = require('./config_test.json');
 
 var dbService;
 
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    dbService = DataBase.DataBase("2270eecb5618229b48b78dae7807375aad80a57a", "7", {
+    dbService = DataBase.DataBase(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
       scope: "test"
     });
