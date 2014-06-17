@@ -255,7 +255,10 @@ email.send(
 SMS Service.
 
 * [Constructor](#swisher_clientschedulerappsecret-appid-options)
-* [Send](#smssendnumber-text-callback)
+* [Insert]
+* [Get]
+* [List]
+* [Delete]
 
 ### swisher_client.Scheduler("appSecret", "appId", [options])
 
@@ -268,16 +271,186 @@ var swisher_client = require('swisher-client'),
     });
 ```
 
-### sms.send(number, text, callback)
+### scheduler.insert(title, timeZone, startDate, optional, callback)
 Parameters:
-#### number (String)
-Telephone number.
-#### text (String)
-Message to be send.
+
+#### title (String)
+Title of the scheduler event ( Max:500 characters).
+
+#### timeZone (String)
+TimeZone to process the start/end Times( Timezone should be standards TZ string values
+from [TIMEZONES](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) ).
+ex: Asia/Colombo
+
+#### startDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* description (String)
+Short description of the scheduler event(Max:1000 characters).
+
+* startTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.If this not given then event will consider as a whole
+ day event starting from 00:00:00.
+
+* endDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+* endTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.If this not given then event will consider as a whole
+ day event starting from 00:00:00.
+
+* location (String)
+Location of the current event.
+
+* organizer (String)
+Email Address of the event organizer if available.
+
+* attendees (String)
+Array of email addresses who attending to current event.These email will get a notification if specified.
+
+* notifyTypes (String)
+If provided then attendees will get a notification according to the time threshold of the event.Valid notify types
+are ['email','sms','push'].
+
+* notifyNumbers (String)
+If notifyType provided as SMS then these are the numbers get notified.
+
+* callbackLink (String)
+If provided then this url will called (GET request) according to the threshold time.
+
+* thresholds (String)
+Threshold value ( when to fire the event before it happens).This must be a integer and it will be considered as minutes.
+ex:5 (this means event will send notifications and execute callBackLink before 5 minutes of its start time).
 
 ```javascript
 
-scheduler.send("00947xxxxxxxx", function(err, result){
+scheduler.insert(
+  "Wake Up Its Christmas!",
+  "Asia/Colombo",
+  "2014-12-25",
+  {
+    "description": "Shake up the happiness. Wake up the happiness. Shake up the happiness. Its christmas time",
+    "attendees": ["bob@myfriends.com", "john@myfriends.com"],
+    "callbackLink": "http://wakeupmydad.com/hay-dad",
+    "notifyTypes": ["sms"],
+    "notifyNumbers": ["NOBILE_NUMBER1"],
+    "startTime": "08:30:00"
+  },
+  function (err, result) {
+    if (err) {
+      // Handle Error Here
+    } else {
+      // -- Code Here
+    }
+  });
+```
+
+### scheduler.get(_id, callback)
+Parameters:
+
+#### \_id (String)
+\_id received from the /insert or /list request which is the unique id of the scheduler event
+
+```javascript
+
+scheduler.send("75f9439ed416e0501294a3831abe", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+### scheduler.list(optional, callback)
+Should use one of the following key-params.You can have multiple key-value pairs as new POST param set.
+
+Parameters:
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* title (String)
+Title of the scheduler event ( Max:500 characters).
+
+* description (String)
+Short description of the scheduler event(Max:1000 characters).
+
+* timeZone (String)
+TimeZone to process the start/end Times( Timezone should be standards TZ string values
+from [TIMEZONES](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) ).
+ex: Asia/Colombo
+
+* startDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+* startTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.
+If this not given then event will consider as a whole day event starting from 00:00:00.
+
+* endDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+* endTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.
+If this not given then event will consider as a whole day event starting from 00:00:00.
+
+* organizer (String)
+Email Address of the event organizer if available.
+
+```javascript
+
+scheduler.list({"startDate":"2014-12-25"}, function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+### scheduler.delete(optional, callback)
+Should use one of the following key-params.You can have multiple key-value pairs as new POST param set.
+
+Parameters:
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* title (String)
+Title of the scheduler event ( Max:500 characters).
+
+* description (String)
+Short description of the scheduler event(Max:1000 characters).
+
+* timeZone (String)
+TimeZone to process the start/end Times( Timezone should be standards TZ string values
+from [TIMEZONES](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) ).
+ex: Asia/Colombo
+
+* startDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+* startTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.
+If this not given then event will consider as a whole day event starting from 00:00:00.
+
+* endDate (String)
+Start date of the scheduling event in the format yyyy-MM-dd.
+
+* endTime (String)
+Start time of the scheduling event in the 24 hour format HH:mm:ss.
+If this not given then event will consider as a whole day event starting from 00:00:00.
+
+* organizer (String)
+Email Address of the event organizer if available.
+
+```javascript
+
+scheduler.list({"title":"Wake Up Its Christmas!","startDate":"2014-12-25"}, function(err){
   if (err) {
     // Handle Error Here
   } else {
