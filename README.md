@@ -3,7 +3,7 @@
 <Coming Soon> NodeJS Client library for Swisher platform.
 "swisher.io" is under construction. It will be available for public usage in next month.
 
-## Getting Started
+# Getting Started
 Install the module with: `npm install swisher-client`
 
 Example :
@@ -33,7 +33,7 @@ dbService.read({"name":"John"}, function(err, result){
 });
 ```
 
-## Documentation
+# Documentation
 
 Following Web Services are available in Swisher Platform.
 
@@ -43,7 +43,7 @@ Following Web Services are available in Swisher Platform.
 4. [Scheduler Service](#4-scheduler)
 5. [Notification Service](#5-notification)
 
-### 1. DataBase Service
+## 1. DataBase Service
 Document Storage Service.
 
 * [Constructor](#swisher_clientdatabaseappsecret-appid-options)
@@ -52,7 +52,7 @@ Document Storage Service.
 * [Update](#dbserviceupdatefind-data-callback)
 * [Delete](#dbservicedeletefind-callback)
 
-#### swisher_client.DataBase("appSecret", "appId", [options])
+### swisher_client.DataBase("appSecret", "appId", [options])
 
 ```javascript
 
@@ -63,9 +63,9 @@ var swisher_client = require('swisher-client'),
     });
 ```
 
-#### dbService.create(data, callback)
+### dbService.create(data, callback)
 Parameters:
-###### data (JSON)
+#### data (JSON)
 Document to be created/added. Should be a valid JSON object.
 
 ```javascript
@@ -79,9 +79,9 @@ dbService.create({"name":"John","age":"30"}, function(err){
 });
 ```
 
-#### dbService.read(find, callback)
+### dbService.read(find, callback)
 Parameters:
-###### find (JSON)
+#### find (JSON)
 JSON query to find the document in the storage.
 
 ```javascript
@@ -95,9 +95,9 @@ dbService.read({"name":"John"}, function(err, result){
 });
 ```
 
-#### dbService.reads(find, [optional], callback)
+### dbService.reads(find, [optional], callback)
 Parameters:
-###### find (JSON)
+#### find (JSON)
 JSON query to find the document in the storage.
 
 ```javascript
@@ -111,12 +111,12 @@ dbService.reads({"name":"John"}, {}, function(err, result){
 });
 ```
 
-#### dbService.update(find, data, callback)
+### dbService.update(find, data, callback)
 Parameters:
-###### find (JSON)
+#### find (JSON)
 JSON query to find the document in the storage.
 
-###### data (JSON)
+#### data (JSON)
 Document to be created/added. Should be a valid JSON object.
 
 ```javascript
@@ -130,9 +130,9 @@ dbService.update({"name":"John"}, {"age":"45"}, function(err){
 });
 ```
 
-#### dbService.delete(find, callback)
+### dbService.delete(find, callback)
 Parameters:
-###### find (JSON)
+#### find (JSON)
 JSON query to find the document in the storage.
 
 ```javascript
@@ -146,13 +146,13 @@ dbService.delete({"name":"John"}, function(err){
 });
 ```
 
-### 2. SMS
+## 2. SMS
 SMS Service.
 
 * [Constructor](#swisher_clientsmsappsecret-appid-options)
-* [Send](#dbservicereadfind-callback)
+* [Send](#smssendnumber-text-callback)
 
-#### swisher_client.SMS("appSecret", "appId", [options])
+### swisher_client.SMS("appSecret", "appId", [options])
 
 ```javascript
 
@@ -163,11 +163,11 @@ var swisher_client = require('swisher-client'),
     });
 ```
 
-#### sms.send(number, text, callback)
+### sms.send(number, text, callback)
 Parameters:
-###### number (String)
+#### number (String)
 Telephone number.
-###### text (String)
+#### text (String)
 Message to be send.
 
 ```javascript
@@ -181,13 +181,13 @@ sms.send("00947xxxxxxxx", function(err, result){
 });
 ```
 
-### 3. Email
+## 3. Email
 Email Service.
 
 * [Constructor](#swisher_clientemailappsecret-appid-options)
 * [Send](#emailsendto-from-subject-message-optional-callback)
 
-#### swisher_client.Email("appSecret", "appId", [options])
+### swisher_client.Email("appSecret", "appId", [options])
 
 ```javascript
 
@@ -198,21 +198,21 @@ var swisher_client = require('swisher-client'),
     });
 ```
 
-#### email.send(to, from, subject, message, optional, callback)
+### email.send(to, from, subject, message, optional, callback)
 Parameters:
-###### to (Array of JSON  Objects)
+#### to (Array of JSON  Objects)
 In this parameter, it should be specified recipients’details as a json array.
 
-###### from (JSON Object)
+#### from (JSON Object)
 Details of the sender.This also should be specified as a json object. Single email and name parameters as a object.
 
-###### subject (String)
+#### subject (String)
 Subject of the email which it to be sent..
 
-###### message (JSON Object)
+#### message (JSON Object)
 Message that you want to send. This should be specified as a json array.
 
-###### optional (JSON)
+#### optional (JSON)
 Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
 
 * cc (Array of JSON objects)
@@ -251,19 +251,117 @@ email.send(
 
 ```
 
-### 4. Scheduler
+## 4. Scheduler
+SMS Service.
 
+* [Constructor](#swisher_clientschedulerappsecret-appid-options)
+* [Send](#smssendnumber-text-callback)
 
-### 5. Notification
+### swisher_client.Scheduler("appSecret", "appId", [options])
 
+```javascript
 
-## Contributing
+var swisher_client = require('swisher-client'),
+    scheduler = swisher_client.Scheduler("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
+```
+
+### sms.send(number, text, callback)
+Parameters:
+#### number (String)
+Telephone number.
+#### text (String)
+Message to be send.
+
+```javascript
+
+scheduler.send("00947xxxxxxxx", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
+
+## 5. Notification
+Notification Service.
+
+* [Constructor](#swisher_clientnotificationappsecret-appid-options)
+* [Send](#smssendnumber-text-callback)
+
+### swisher_client.Notification("appSecret", "appId", [options])
+
+```javascript
+
+var swisher_client = require('swisher-client'),
+    notification = swisher_client.Notification("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
+```
+
+### notification.sendMessagesToRecipients(recipients, msg, optional, callback)
+Parameters:
+#### recipients (Array of String)
+Array of recipient IDs who are going to receive the message.
+
+#### msg (String)
+Message to deliver among users who are registered and subscribe to a specific channel.
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* deliverOffline (boolean)
+Sending offline messages (true/false).When it is true offline messages will deliver to particular channel.
+
+```javascript
+
+notification.sendMessagesToRecipients(["7780aa6c75f9439ed416e050","7780aa6c75f9439ed416e050"],"Hey!", {"deliverOffline":"true"},
+  function(err, result){
+    if (err) {
+      // Handle Error Here
+    } else {
+      // -- Code Here
+    }
+});
+```
+
+### notification.sendMessagesToChannel(channel, msg, optional, callback)
+Parameters:
+#### channel (String)
+Array of recipient IDs who are going to receive the message.
+
+#### msg (String)
+Message to deliver among users who are registered and subscribe to a specific channel.
+
+#### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* deliverOffline (boolean)
+Sending offline messages (true/false).When it is true offline messages will deliver to particular channel.
+
+```javascript
+
+notification.sendMessagesToRecipients("test_channel", "Hey!", {"deliverOffline":"true"},
+  function(err, result){
+    if (err) {
+      // Handle Error Here
+    } else {
+      // -- Code Here
+    }
+});
+```
+
+# Contributing
 @Author : Gihan Karunarathne
 @Email  : gckarunarathne@gmail.com
 
-## Release History
-_0.1.8_
+# Release History
+_0.2.2_
 
-## License
+# License
 Copyright (c) 2014 Gihan Karunarathne  
 Licensed under the MIT license.
