@@ -1,6 +1,6 @@
 # swisher-client [![Build Status](https://secure.travis-ci.org/gihankarunarathne/nodejs-swisher-library.png?branch=master)](http://travis-ci.org/gihankarunarathne/nodejs-swisher-library)
 
-<Coming Soon> NodeJS Client library for Swisher platform
+<Coming Soon> NodeJS Client library for Swisher platform.
 "swisher.io" is under construction. It will be available for public usage in next month.
 
 ## Getting Started
