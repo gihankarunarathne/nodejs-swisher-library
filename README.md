@@ -46,7 +46,13 @@ Following Web Services are available in Swisher Platform.
 ### 1. DataBase Service
 Document Storage Service.
 
-#### swisher_client.DataBase("appSecret", "appId", [options]);
+* [Constructor](#swisher_clientdatabaseappsecret-appid-options)
+* [Read](#dbservicereadfind-callback)
+* [Reads](#dbservicereadsfind-optional-callback)
+* [Update](#dbserviceupdatefind-data-callback)
+* [Delete](#dbservicedeletefind-callback)
+
+#### swisher_client.DataBase("appSecret", "appId", [options])
 
 ```javascript
 
@@ -141,10 +147,109 @@ dbService.delete({"name":"John"}, function(err){
 ```
 
 ### 2. SMS
-...
+SMS Service.
+
+* [Constructor](#swisher_clientsmsappsecret-appid-options)
+* [Send](#dbservicereadfind-callback)
+
+#### swisher_client.SMS("appSecret", "appId", [options])
+
+```javascript
+
+var swisher_client = require('swisher-client'),
+    sms = swisher_client.SMS("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
+```
+
+#### sms.send(number, text, callback)
+Parameters:
+###### number (String)
+Telephone number.
+###### text (String)
+Message to be send.
+
+```javascript
+
+sms.send("00947xxxxxxxx", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+  }
+});
+```
 
 ### 3. Email
-...
+Email Service.
+
+* [Constructor](#swisher_clientemailappsecret-appid-options)
+* [Send](#emailsendto-from-subject-message-optional-callback)
+
+#### swisher_client.Email("appSecret", "appId", [options])
+
+```javascript
+
+var swisher_client = require('swisher-client'),
+    email = swisher_client.Email("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+      grantType : "access_token",
+      scope     : "test"
+    });
+```
+
+#### email.send(to, from, subject, message, optional, callback)
+Parameters:
+###### to (Array of JSON  Objects)
+In this parameter, it should be specified recipients’details as a json array.
+
+###### from (JSON Object)
+Details of the sender.This also should be specified as a json object. Single email and name parameters as a object.
+
+###### subject (String)
+Subject of the email which it to be sent..
+
+###### message (JSON Object)
+Message that you want to send. This should be specified as a json array.
+
+###### optional (JSON)
+Optional parameters (Empty object such as {} or JSON object provide with key value pairs);
+
+* cc (Array of JSON objects)
+Carbon Copy address. This also should be specified as a json array.
+
+* bcc (Array of JSON objects)
+Blind Carbon Copy address. This also should be specified as a json array.
+
+```javascript
+
+email.send(
+  [
+    {"name": "JohnTaylor", "email": "john@example.com"},
+    {"name": "JimmyHolder", "email": "jimmy@example.com"}
+  ],
+  {"name": "AndrewSmith", "email": "smith@example.com"},
+  "Introducing New Service",
+  [
+    {"type": "text", "content": "TestMessage"}
+  ],
+  {
+    "bcc": [
+      {"name": "SandraCollins", "email": "collins@example.com"}
+    ],
+    "cc": [
+      {"name": "MikeTracer", "email": "mike@example.com"}
+    ]
+  },
+  function (err, result) {
+    if (err) {
+      // Handle Error Here
+    } else {
+      // -- Code Here
+    }
+  });
+
+```
 
 ### 4. Scheduler
 
