@@ -105,7 +105,7 @@ dbService.delete({"name":"John"}, function(err){
 @Email  : gckarunarathne@gmail.com
 
 ## Release History
-_0.1.4_
+_0.1.8_
 
 ## License
 Copyright (c) 2014 Gihan Karunarathne  
