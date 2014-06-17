@@ -7,6 +7,7 @@
 Install the module with: `npm install swisher-client`
 
 Example :
+
 ```javascript
 
 var swisher_client = require('swisher-client'),
@@ -36,11 +37,11 @@ dbService.read({"name":"John"}, function(err, result){
 
 Following Web Services are available in Swisher Platform.
 
-1. [DataBase Service](#database-service)
-2. [SMS Service](#sms-service)
-3. [Email Service](#email-service)
-4. [Scheduler Service](#scheduler-service)
-5. [Notification Service](#notification-service)
+1. [DataBase Service](#1-database)
+2. [SMS Service](#2-sms)
+3. [Email Service](#3-email)
+4. [Scheduler Service](#4-scheduler)
+5. [Notification Service](#5-notification)
 
 ### 1. DataBase Service
 Document Storage Service.
