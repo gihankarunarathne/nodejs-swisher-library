@@ -15,7 +15,7 @@ Example :
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    dbService = swisher_client.DataBase("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -61,7 +61,7 @@ Document Storage Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    dbService = swisher_client.DataBase("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -176,7 +176,7 @@ SMS Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    sms = swisher_client.SMS("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    sms = swisher_client.SMS("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -211,7 +211,7 @@ Email Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    email = swisher_client.Email("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    email = swisher_client.Email("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -284,7 +284,7 @@ SMS Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    scheduler = swisher_client.Scheduler("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    scheduler = swisher_client.Scheduler("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -489,7 +489,7 @@ Notification Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    notification = swisher_client.Notification("7780aa6c75f9439ed416e0501294a3831abe1a05", "8", {
+    notification = swisher_client.Notification("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : "test"
     });
@@ -511,7 +511,7 @@ Sending offline messages (true/false).When it is true offline messages will deli
 
 ```javascript
 
-notification.sendMessagesToRecipients(["7780aa6c75f9439ed416e050","7780aa6c75f9439ed416e050"],"Hey!", {"deliverOffline":"true"},
+notification.sendMessagesToRecipients(["RecipientID1","RecipientID2"],"Hey!", {"deliverOffline":"true"},
   function(err, result){
     if (err) {
       // Handle Error Here
@@ -537,7 +537,7 @@ Sending offline messages (true/false).When it is true offline messages will deli
 
 ```javascript
 
-notification.sendMessagesToRecipients("test_channel", "Hey!", {"deliverOffline":"true"},
+notification.sendMessagesToRecipients("ChannelName", "Hey!", {"deliverOffline":"true"},
   function(err, result){
     if (err) {
       // Handle Error Here
