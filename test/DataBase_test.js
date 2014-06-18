@@ -1,13 +1,11 @@
 /**
  * DataBase Service Test Cases.
  *
- * http://code.thinkcube.net/swisher
- *
- * @Author : Gihan Karunarathne
- * @Email  : gckarunarathne@gmail.com
- *
- * Copyright (c) 2014 ThinkCube Systems
- * Licensed under the Apache-2.0 license.
+ * thinkCube Systems (Pvt) Ltd. (http://thinkcube.com/)
+ * @copyright Copyright (c) 2014 thinkCube Systems (Pvt) Ltd
+ * @Author Gihan Karunarathne
+ * @Email  gckarunarathne@gmail.com
+ * @license Licensed under the MIT license.
  *
  * Command :
  * 1. move to nodejs-swisher-library folder

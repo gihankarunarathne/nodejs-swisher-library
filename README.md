@@ -559,13 +559,13 @@ notification.sendMessagesToRecipients("ChannelName", "Hey!", {"deliverOffline":"
 });
 ```
 
-# Contributing
-@Author : Gihan Karunarathne
-@Email  : gckarunarathne@gmail.com
+## Contributing
+* Gihan Karunarathne <gckarunarathne@gmail.com>
 
-# Release History
+## Release History
 _0.2.3_
 
-# License
-Copyright (c) 2014 Gihan Karunarathne  
+## License
+thinkCube Systems (Pvt) Ltd. (http://thinkcube.com/)
+Copyright (c) 2014 thinkCube Systems (Pvt) Ltd
 Licensed under the MIT license.
