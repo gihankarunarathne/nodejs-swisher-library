@@ -1,7 +1,7 @@
 {
   "name": "swisher-client",
   "description": "Coming Soon - NodeJS Client library of Swisher platform",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/gihankarunarathne/nodejs-swisher-library",
   "author": {
     "name": "Gihan Karunarathne",
@@ -36,6 +36,12 @@
     "grunt-mocha-test": "^0.11.0"
   },
   "keywords": [
-    "swisher"
+    "swisher",
+    "web_services",
+    "database",
+    "sms",
+    "email",
+    "scheduler",
+    "notification"
   ]
 }

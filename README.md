@@ -50,11 +50,14 @@ Following Web Services are available in Swisher Platform.
 ## 1. DataBase Service
 Document Storage Service.
 
-* [Constructor](#swisher_clientdatabaseappsecret-appid-options)
-* [Read](#dbservicereadfind-callback)
-* [Reads](#dbservicereadsfind-optional-callback)
-* [Update](#dbserviceupdatefind-data-callback)
-* [Delete](#dbservicedeletefind-callback)
+| Method | Method Signature |
+| ---- | ----- |
+| `Constructor` | [*swisher_client.DataBase("appSecret", "appId", [options])*](#swisher_clientdatabaseappsecret-appid-options) |
+| `Create` | [*dbService.create(data, callback)*](#dbservicecreatedata-callback) |
+| `Read` | [*dbService.read(find, callback)*](#dbservicereadfind-callback) |
+| `Reads` | [*dbService.reads(find, optional, callback)*](#dbservicereadsfind-optional-callback) |
+| `Update` | [*dbService.update(find, data, callback)*](#dbserviceupdatefind-data-callback) |
+| `Delete` | [*dbService.delete(find, callback)*](#dbservicedeletefind-callback) |
 
 ### swisher_client.DataBase("appSecret", "appId", [options])
 
@@ -168,8 +171,10 @@ dbService.delete({"name":"John"}, function(err){
 ## 2. SMS
 SMS Service.
 
-* [Constructor](#swisher_clientsmsappsecret-appid-options)
-* [Send](#smssendnumber-text-callback)
+| Method | Method Signature |
+| ---- | ----- |
+| `Constructor` | [*swisher_client.SMS("appSecret", "appId", [options])*](#swisher_clientsmsappsecret-appid-options) |
+| `Send` | [*sms.send(number, text, callback)*](#smssendnumber-text-callback) |
 
 ### swisher_client.SMS("appSecret", "appId", [options])
 
@@ -203,8 +208,10 @@ sms.send("00947xxxxxxxx", function(err, result){
 ## 3. Email
 Email Service.
 
-* [Constructor](#swisher_clientemailappsecret-appid-options)
-* [Send](#emailsendto-from-subject-message-optional-callback)
+| Method | Method Signature |
+| ---- | ----- |
+| `Constructor` | [*swisher_client.Email("appSecret", "appId", [options])*](#swisher_clientemailappsecret-appid-options) |
+| `Send` | [*email.send(to, from, subject, message, optional, callback)*](#emailsendto-from-subject-message-optional-callback) |
 
 ### swisher_client.Email("appSecret", "appId", [options])
 
@@ -273,11 +280,13 @@ email.send(
 ## 4. Scheduler
 SMS Service.
 
-* [Constructor](#swisher_clientschedulerappsecret-appid-options)
-* [Insert](#schedulerinserttitle-timezone-startdate-optional-callback)
-* [Get](#schedulerget_id-callback)
-* [List](#schedulerlistoptional-callback)
-* [Delete](#schedulerdeleteoptional-callback)
+| Method | Method Signature |
+| ---- | ----- |
+| `Constructor` | [*swisher_client.Scheduler("appSecret", "appId", [options])*](#swisher_clientschedulerappsecret-appid-options) |
+| `Insert` | [*scheduler.insert(title, timeZone, startDate, optional, callback)*](#schedulerinserttitle-timezone-startdate-optional-callback) |
+| `Get` | [*scheduler.get(_id, callback)*](#schedulerget_id-callback) |
+| `List` | [*scheduler.list(optional, callback)*](#schedulerlistoptional-callback) |
+| `Delete` | [*scheduler.delete(optional, callback)*](#schedulerdeleteoptional-callback) |
 
 ### swisher_client.Scheduler("appSecret", "appId", [options])
 
@@ -484,6 +493,12 @@ Notification Service.
 * [Constructor](#swisher_clientnotificationappsecret-appid-options)
 * [Send](#smssendnumber-text-callback)
 
+| Method | Method Signature |
+| ---- | ----- |
+| `Constructor` | [*swisher_client.Notification("appSecret", "appId", [options])*](#swisher_clientnotificationappsecret-appid-options) |
+| `SendMessagesToRecipients` | [*notification.sendMessagesToRecipients(recipients, msg, optional, callback)*](#notificationsendmessagestorecipientsrecipients-msg-optional-callback) |
+| `SendMessagesToChannel` | [*notification.sendMessagesToChannel(channel, msg, optional, callback)*](#notificationsendmessagestochannelchannel-msg-optional-callback) |
+
 ### swisher_client.Notification("appSecret", "appId", [options])
 
 ```javascript
@@ -552,7 +567,7 @@ notification.sendMessagesToRecipients("ChannelName", "Hey!", {"deliverOffline":"
 @Email  : gckarunarathne@gmail.com
 
 # Release History
-_0.2.2_
+_0.2.3_
 
 # License
 Copyright (c) 2014 Gihan Karunarathne  
