@@ -196,7 +196,7 @@ Message to be send.
 
 ```javascript
 
-sms.send("00947xxxxxxxx", function(err, result){
+sms.send("009477xxxxxxx", function(err, result){
   if (err) {
     // Handle Error Here
   } else {
@@ -489,9 +489,6 @@ scheduler.list({"title":"Wake Up Its Christmas!","startDate":"2014-12-25"}, func
 
 ## 5. Notification
 Notification Service.
-
-* [Constructor](#swisher_clientnotificationappsecret-appid-options)
-* [Send](#smssendnumber-text-callback)
 
 | Method | Method Signature |
 | ---- | ----- |
