@@ -196,7 +196,7 @@ Message to be send.
 
 ```javascript
 
-sms.send("009477xxxxxxx", function(err, result){
+sms.send("009477xxxxxxx", "Hey, This is send via Swisher.io", function(err, result){
   if (err) {
     // Handle Error Here
   } else {
