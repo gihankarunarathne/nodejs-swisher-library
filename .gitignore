@@ -4,6 +4,9 @@
 
 *.sublime*
 
+# Configurations
+config.json
+
 # Tests
 config-local.*
 config_test.json
