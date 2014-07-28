@@ -33,9 +33,9 @@ describe('NodeJS Swisher Client: ', function () {
 
       SMSService.send(testConf.testMobileNum,'test_sms_msg', function (err,result) {
         if (err) {
-          return done(result);
+          assert.ok(!err, "Should not return an error. " + JSON.stringify(err));
         } else {
-          assert.ok(true, "Should not return any thing for successful operation.");
+          assert.ok(result, "Should return any thing for successful operation.");
           done();
         }
       });

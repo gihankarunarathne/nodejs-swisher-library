@@ -32,11 +32,11 @@ describe('NodeJS Swisher Client: ', function () {
   });
 
   describe('Create: ', function () {
-    it('Basic create operation.', function (done) {
+    it('Basic create operation: ', function (done) {
 
       dbService.create({"name": "John", "age": "30"}, function (err) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
           assert.ok(true, "Should not return any thing for successful operation.");
           done();
@@ -47,13 +47,13 @@ describe('NodeJS Swisher Client: ', function () {
   });
 
   describe('Read: ', function () {
-    it('Basic read operation.', function (done) {
+    it('Basic read operation: ', function (done) {
 
       dbService.read({"name": "John"}, function (err, result) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
-          assert.ok(result, "Should not return any thing for successful operation.");
+          assert.ok(result, "Should return any thing for successful operation.");
           assert.notEqual(result._id, "", "Return object id should not empty.")
           done();
         }
@@ -63,11 +63,11 @@ describe('NodeJS Swisher Client: ', function () {
   });
 
   describe('Update: ', function () {
-    it('Basic update operation.', function (done) {
+    it('Basic update operation: ', function (done) {
 
       dbService.update({"name": "John"}, {"age": "40"}, function (err) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
           assert.ok(true, "Should not return any thing for successful operation.");
           done();
@@ -78,13 +78,13 @@ describe('NodeJS Swisher Client: ', function () {
   });
 
   describe('Read: ', function () {
-    it('Basic read operation.', function (done) {
+    it('Read after Update operation: ', function (done) {
 
       dbService.read({"name": "John"}, function (err, result) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
-          assert.ok(result, "Should not return any thing for successful operation.");
+          assert.ok(result, "Should return any thing for successful operation.");
           assert.equal(result.age, "40", "Return object id should not empty.")
           done();
         }
@@ -98,7 +98,7 @@ describe('NodeJS Swisher Client: ', function () {
 
       dbService.delete({"name": "John"}, function (err) {
         if (err) {
-          assert.ok(!err);
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
           assert.ok(true, "Should not return any thing for successful operation.");
           done();
@@ -113,9 +113,9 @@ describe('NodeJS Swisher Client: ', function () {
 
       dbService.reads({"name": "John"}, {"fsd":"fsdf"}, function (err, result) {
         if (err) {
-          assert.ok(!err, "Should not return error obj : " + JSON.stringify(err));
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
-          assert.ok(result.length == 0, "Should not return any thing for successful operation.");
+          assert.ok(result.length == 0, "Should return result array any thing for successful operation.");
           done();
         }
       });
