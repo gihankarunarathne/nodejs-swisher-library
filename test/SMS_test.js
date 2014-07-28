@@ -31,7 +31,7 @@ describe('NodeJS Swisher Client: ', function () {
   describe('SMS Send: ', function () {
     it('Should get 200 response with no errors', function (done) {
 
-      SMSService.send(testConf.testMobileNum,'test_sms_msg', function (err,result) {
+      SMSService.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return an error. " + JSON.stringify(err));
         } else {
