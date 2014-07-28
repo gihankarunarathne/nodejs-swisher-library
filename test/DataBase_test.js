@@ -43,10 +43,8 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
-  });
+    });
 
-  describe('Read: ', function () {
     it('Basic read operation: ', function (done) {
 
       dbService.read({"name": "John"}, function (err, result) {
@@ -59,10 +57,8 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
-  });
+    });
 
-  describe('Update: ', function () {
     it('Basic update operation: ', function (done) {
 
       dbService.update({"name": "John"}, {"age": "40"}, function (err) {
@@ -74,10 +70,8 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
-  });
+    });
 
-  describe('Read: ', function () {
     it('Read after Update operation: ', function (done) {
 
       dbService.read({"name": "John"}, function (err, result) {
@@ -90,10 +84,8 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
-  });
+    });
 
-  describe('Delete: ', function () {
     it('Basic delete operation.', function (done) {
 
       dbService.delete({"name": "John"}, function (err) {
@@ -105,13 +97,11 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
-  });
+    });
 
-  describe('Reads: ', function () {
     it('Basic reads operation.', function (done) {
 
-      dbService.reads({"name": "John"}, {"fsd":"fsdf"}, function (err, result) {
+      dbService.reads({"name": "John"}, {"fsd": "fsdf"}, function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
@@ -120,7 +110,8 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
-    })
+    });
+
   });
 
   after(function (done) {

@@ -4,6 +4,7 @@
  * thinkCube Systems (Pvt) Ltd. (http://thinkcube.com/)
  * @copyright Copyright (c) 2014 thinkCube Systems (Pvt) Ltd
  * @Author Nuwan Madhawa <nuwan@thinkcube.com>
+ * @Author Gihan Karunarathne <gckarunarathne@gmail.com>
  * Command :
  * 1. move to nodejs-swisher-library folder
  * 2. grunt mochaTest
@@ -28,7 +29,7 @@ describe('NodeJS Swisher Client: ', function () {
     done();
   });
 
-  describe('SMS Send: ', function () {
+  describe('Email Send: ', function () {
     it('Should get 200 response with no errors', function (done) {
 
       SMSService.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
