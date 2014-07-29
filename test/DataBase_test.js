@@ -101,7 +101,7 @@ describe('NodeJS Swisher Client: ', function () {
 
     it('Basic reads operation.', function (done) {
 
-      dbService.reads({"name": "John"}, {"fsd": "fsdf"}, function (err, result) {
+      dbService.reads({"name": "John"}, {"_id": 0}, function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
@@ -110,6 +110,36 @@ describe('NodeJS Swisher Client: ', function () {
         }
       });
 
+    });
+
+  });
+
+  describe.only('Statistics: ', function () {
+
+    it('Connections: ', function (done) {
+      var d = new Date();
+      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
+        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      console.log("::::::::::::: " + from + "  " + to);
+      dbService.connections(from, to, function (err, result) {
+        if (err) {
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+        } else {
+          assert.ok(result.data instanceof Object, "Should return Data object in result.");
+          done();
+        }
+      });
+    });
+
+    it('Storage: ', function (done) {
+      dbService.storage(function (err, result) {
+        if (err) {
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+        } else {
+          assert.ok(result.data instanceof Object, "Should return Data object in result.");
+          done();
+        }
+      });
     });
 
   });
