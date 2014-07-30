@@ -58,6 +58,8 @@ Document Storage Service.
 | `Reads` | [*dbService.reads(find, optional, callback)*](#dbservicereadsfind-optional-callback) |
 | `Update` | [*dbService.update(find, data, callback)*](#dbserviceupdatefind-data-callback) |
 | `Delete` | [*dbService.delete(find, callback)*](#dbservicedeletefind-callback) |
+| `Connections` | [*dbService.connections(from, to, callback)*](#dbserviceconnectionsfrom-to-callback) |
+| `Storage` | [*dbService.storage(callback)*](#dbservicestoragecallback) |
 
 ### swisher_client.DataBase("appSecret", "appId", [options])
 
@@ -168,6 +170,39 @@ dbService.delete({"name":"John"}, function(err){
 });
 ```
 
+### dbService.connections(from, to, callback)
+Parameters:
+#### from (String)
+Start date of the time period which the statistics should be obtained.
+#### to (String)
+End date of the time period which the statistics should be obtained.
+
+```javascript
+
+dbService.connections("2014-07-01", "2014-07-31", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
+});
+```
+
+### dbService.storage(callback)
+
+```javascript
+
+dbService.storage(function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
+});
+```
+
 ## 2. SMS
 SMS Service.
 
@@ -175,6 +210,7 @@ SMS Service.
 | ---- | ----- |
 | `Constructor` | [*swisher_client.SMS("appSecret", "appId", [options])*](#swisher_clientsmsappsecret-appid-options) |
 | `Send` | [*sms.send(number, text, callback)*](#smssendnumber-text-callback) |
+| `Stats` | [*sms.stats(from, to, callback)*](#smsstatsfrom-to-callback) |
 
 ### swisher_client.SMS("appSecret", "appId", [options])
 
@@ -205,6 +241,25 @@ sms.send("009477xxxxxxx", "Hey, This is send via Swisher.io", function(err, resu
 });
 ```
 
+### sms.stats(from, to, callback)
+Parameters:
+#### from (String)
+Start date of the time period which the statistics should be obtained.
+#### to (String)
+End date of the time period which the statistics should be obtained.
+
+```javascript
+
+sms.stats("2014-07-01", "2014-07-31", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
+});
+```
+
 ## 3. Email
 Email Service.
 
@@ -212,6 +267,7 @@ Email Service.
 | ---- | ----- |
 | `Constructor` | [*swisher_client.Email("appSecret", "appId", [options])*](#swisher_clientemailappsecret-appid-options) |
 | `Send` | [*email.send(to, from, subject, message, optional, callback)*](#emailsendto-from-subject-message-optional-callback) |
+| `Stats` | [*email.stats(from, to, callback)*](#emailstatsfrom-to-callback) |
 
 ### swisher_client.Email("appSecret", "appId", [options])
 
@@ -277,6 +333,25 @@ email.send(
 
 ```
 
+### email.stats(from, to, callback)
+Parameters:
+#### from (String)
+Start date of the time period which the statistics should be obtained.
+#### to (String)
+End date of the time period which the statistics should be obtained.
+
+```javascript
+
+email.stats("2014-07-01", "2014-07-31", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
+});
+```
+
 ## 4. Scheduler
 SMS Service.
 
@@ -287,6 +362,7 @@ SMS Service.
 | `Get` | [*scheduler.get(_id, callback)*](#schedulerget_id-callback) |
 | `List` | [*scheduler.list(optional, callback)*](#schedulerlistoptional-callback) |
 | `Delete` | [*scheduler.delete(optional, callback)*](#schedulerdeleteoptional-callback) |
+| `Stats` | [*scheduler.stats(from, to, callback)*](#schedulerstatsfrom-to-callback) |
 
 ### swisher_client.Scheduler("appSecret", "appId", [options])
 
@@ -487,6 +563,25 @@ scheduler.delete({"title":"Wake Up Its Christmas!","startDate":"2014-12-25"}, fu
 });
 ```
 
+### scheduler.stats(from, to, callback)
+Parameters:
+#### from (String)
+Start date of the time period which the statistics should be obtained.
+#### to (String)
+End date of the time period which the statistics should be obtained.
+
+```javascript
+
+scheduler.stats("2014-07-01", "2014-07-31", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
+});
+```
+
 ## 5. Notification
 Notification Service.
 
@@ -495,6 +590,7 @@ Notification Service.
 | `Constructor` | [*swisher_client.Notification("appSecret", "appId", [options])*](#swisher_clientnotificationappsecret-appid-options) |
 | `SendMessagesToRecipients` | [*notification.sendMessagesToRecipients(recipients, msg, optional, callback)*](#notificationsendmessagestorecipientsrecipients-msg-optional-callback) |
 | `SendMessagesToChannel` | [*notification.sendMessagesToChannel(channel, msg, optional, callback)*](#notificationsendmessagestochannelchannel-msg-optional-callback) |
+| `Stats` | [*notification.stats(from, to, callback)*](#notificationstatsfrom-to-callback) |
 
 ### swisher_client.Notification("appSecret", "appId", [options])
 
@@ -556,6 +652,25 @@ notification.sendMessagesToRecipients("ChannelName", "Hey!", {"deliverOffline":"
     } else {
       // -- Code Here
     }
+});
+```
+
+### notification.stats(from, to, callback)
+Parameters:
+#### from (String)
+Start date of the time period which the statistics should be obtained.
+#### to (String)
+End date of the time period which the statistics should be obtained.
+
+```javascript
+
+notification.stats("2014-07-01", "2014-07-31", function(err, result){
+  if (err) {
+    // Handle Error Here
+  } else {
+    // -- Code Here
+    console.dir(result);
+  }
 });
 ```
 
