@@ -15,14 +15,14 @@ var Email = require('../lib/Email'),
   assert = require('assert'),
   testConf = require('./config_test.json');
 
-var EmailService;
+var emailService;
 
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    EmailService = Email.Email(testConf.testAppSecret, testConf.testAppId, {
+    emailService = Email.Email(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
-      scope: "test"
+      scope: ["EmailSend"]
     });
     console.log("Start Tests");
     done();
@@ -31,7 +31,7 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Email: ', function () {
     it('Should send email: ', function (done) {
 
-      EmailService.send([
+      emailService.send([
         {"name": "JohnTaylor", "email": "john@example.com"},
         {"name": "JimmyHolder", "email": "jimmy@example.com"}
       ],
@@ -57,6 +57,25 @@ describe('NodeJS Swisher Client: ', function () {
         });
 
     })
+  });
+
+  describe('Statistics: ', function () {
+
+    it('Stats: ', function (done) {
+      var d = new Date();
+      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
+        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+      emailService.stats(from, to, function (err, result) {
+        if (err) {
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+        } else {
+          assert.ok(result.data instanceof Object, "Should return Data object in result.");
+          done();
+        }
+      });
+    });
+
   });
 
   after(function (done) {
