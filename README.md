@@ -384,7 +384,7 @@ Parameters:
 
 ```javascript
 
-scheduler.send("75f9439ed416e0501294a3831abe", function(err, result){
+scheduler.get("75f9439ed416e0501294a3831abe", function(err, result){
   if (err) {
     // Handle Error Here
   } else {
@@ -478,7 +478,7 @@ Email Address of the event organizer if available.
 
 ```javascript
 
-scheduler.list({"title":"Wake Up Its Christmas!","startDate":"2014-12-25"}, function(err){
+scheduler.delete({"title":"Wake Up Its Christmas!","startDate":"2014-12-25"}, function(err){
   if (err) {
     // Handle Error Here
   } else {
@@ -568,4 +568,3 @@ _0.2.3_
 ## License
 thinkCube Systems (Pvt) Ltd. (http://thinkcube.com/)
 Copyright (c) 2014 thinkCube Systems (Pvt) Ltd
-Licensed under the MIT license.

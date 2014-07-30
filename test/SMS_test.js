@@ -29,8 +29,8 @@ describe('NodeJS Swisher Client: ', function () {
     done();
   });
 
-  describe('Email Send: ', function () {
-    it('Should get 200 response with no errors', function (done) {
+  describe('Email: ', function () {
+    it('Send: ', function (done) {
 
       SMSService.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
         if (err) {
@@ -42,6 +42,25 @@ describe('NodeJS Swisher Client: ', function () {
       });
 
     })
+  });
+
+  describe('Statistics: ', function () {
+
+    it('Stats: ', function (done) {
+      var d = new Date();
+      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
+        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+      SMSService.stats(from, to, function (err, result) {
+        if (err) {
+          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+        } else {
+          assert.ok(result.data instanceof Object, "Should return Data object in result.");
+          done();
+        }
+      });
+    });
+
   });
 
   after(function (done) {

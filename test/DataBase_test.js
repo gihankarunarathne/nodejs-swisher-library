@@ -114,13 +114,13 @@ describe('NodeJS Swisher Client: ', function () {
 
   });
 
-  describe.only('Statistics: ', function () {
+  describe('Statistics: ', function () {
 
     it('Connections: ', function (done) {
       var d = new Date();
       var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
         to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-      console.log("::::::::::::: " + from + "  " + to);
+
       dbService.connections(from, to, function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
