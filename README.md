@@ -68,7 +68,7 @@ Document Storage Service.
 var swisher_client = require('swisher-client'),
     dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["DBRead", "DBWrite"]
     });
 ```
 
@@ -219,7 +219,7 @@ SMS Service.
 var swisher_client = require('swisher-client'),
     sms = swisher_client.SMS("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["SMS"]
     });
 ```
 
@@ -276,7 +276,7 @@ Email Service.
 var swisher_client = require('swisher-client'),
     email = swisher_client.Email("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["Email"]
     });
 ```
 
@@ -371,7 +371,7 @@ SMS Service.
 var swisher_client = require('swisher-client'),
     scheduler = swisher_client.Scheduler("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["SchedulerRead", "SchedulerWrite"]
     });
 ```
 
@@ -599,7 +599,7 @@ Notification Service.
 var swisher_client = require('swisher-client'),
     notification = swisher_client.Notification("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["Notification"]
     });
 ```
 
