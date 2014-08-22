@@ -17,7 +17,7 @@ Example :
 var swisher_client = require('swisher-client'),
     dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppObtainFromSwisher.io", {
       grantType : "access_token",
-      scope     : "test"
+      scope     : ["DBRead", "DBWrite"]
     });
 
 dbService.create({"name":"John","age":"30"}, function(err){
