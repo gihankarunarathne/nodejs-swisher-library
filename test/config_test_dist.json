@@ -1,5 +1,5 @@
 {
-  "testAppSecret" : "",
-  "testAppId"     : "",
-  "testMobileNum" : ""
+  "testAppSecret" : "APPSECRET",
+  "testAppId"     : "APPID",
+  "testMobileNum" : "MOBILENUM"
 }

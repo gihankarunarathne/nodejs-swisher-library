@@ -25,13 +25,13 @@ describe('NodeJS Swisher Client: ', function () {
   before(function (done) {
     dbService = DataBase.DataBase(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
-      scope: "test"
+      scope: ['DBRead', 'DBWrite']
     });
     console.log("Start Tests");
     done();
   });
 
-  describe('Create: ', function () {
+  describe('CRUD operations: ', function () {
     it('Basic create operation: ', function (done) {
 
       dbService.create({"name": "John", "age": "30"}, function (err) {
@@ -52,7 +52,7 @@ describe('NodeJS Swisher Client: ', function () {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
           assert.ok(result, "Should return any thing for successful operation.");
-          assert.notEqual(result._id, "", "Return object id should not empty.")
+          assert.notEqual(result._id, "", "Return object id should not empty.");
           done();
         }
       });
@@ -61,26 +61,28 @@ describe('NodeJS Swisher Client: ', function () {
 
     it('Basic update operation: ', function (done) {
 
-      dbService.update({"name": "John"}, {"age": "40"}, function (err) {
+      var age = Math.ceil(Math.random() * 100);
+      dbService.create({"name": "Kamal Dissanayake", "email": "abc@123.com", "age": (age + 10).toString()}, function (err) {
         if (err) {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
           assert.ok(true, "Should not return any thing for successful operation.");
-          done();
-        }
-      });
-
-    });
-
-    it('Read after Update operation: ', function (done) {
-
-      dbService.read({"name": "John"}, function (err, result) {
-        if (err) {
-          assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
-        } else {
-          assert.ok(result, "Should return any thing for successful operation.");
-          assert.equal(result.age, "40", "Return object id should not empty.")
-          done();
+          dbService.update({"email": "abc@123.com"}, {"$set": {"age": age}}, function (err) {
+            if (err) {
+              assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+            } else {
+              assert.ok(true, "Should not return any thing for successful operation.");
+              dbService.read({"email": "abc@123.com"}, function (err, result) {
+                if (err) {
+                  assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
+                } else {
+                  assert.ok(result, "Should return any thing for successful operation.");
+                  assert.equal(result.age, age.toString(), "Return age should be equal to updated age.");
+                  done();
+                }
+              });
+            }
+          });
         }
       });
 
