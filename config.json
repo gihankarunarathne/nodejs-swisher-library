@@ -1,16 +1,17 @@
 {
-  "databaseHost": "localhost",
-  "databasePort": "8005",
+  "databaseHost" : "database.swisher.io",
+  "databasePort" : "80",
 
-  "smsHost": "localhost",
-  "smsPort": "8007",
+  "smsHost" : "sms.swisher.io",
+  "smsPort" : "80",
 
-  "emailHost": "localhost",
-  "emailPort": "8006",
+  "emailHost" : "email.swisher.io",
+  "emailPort" : "80",
 
-  "notificationHost": "localhost",
-  "notificationPort": "8001",
+  "notificationHost" : "notification.swisher.io",
+  "notificationPort" : "80",
 
-  "schedulerHost": "localhost",
-  "schedulerPort": "8004"
+  "schedulerHost" : "scheduler.swisher.io",
+  "schedulerPort" : "80"
 }
+
