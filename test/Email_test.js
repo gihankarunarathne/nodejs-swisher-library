@@ -20,7 +20,7 @@ var emailService;
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    emailService = Email.Email(testConf.testAppSecret, testConf.testAppId, {
+    emailService = new Email.Email(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
       scope: ["EmailSend"]
     });

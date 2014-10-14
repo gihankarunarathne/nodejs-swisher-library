@@ -1,12 +1,12 @@
 describe('Notification swisher client', function(){
-  var notifications = require('../lib/Notification');
+  var Notifications = require('../lib/Notification');
   var assert = require('assert');
   var testConf = require('./config_test.json');
 
   var notifService;
 
   before(function (done) {
-    notifService = notifications.Notification(testConf.testAppSecret, testConf.testAppId, {
+    notifService = new Notifications.Notification(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
       scope: ['Notification']
     });

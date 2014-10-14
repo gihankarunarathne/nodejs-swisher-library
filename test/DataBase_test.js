@@ -23,7 +23,7 @@ var dbService;
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    dbService = DataBase.DataBase(testConf.testAppSecret, testConf.testAppId, {
+    dbService = new DataBase.DataBase(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
       scope: ['DBRead', 'DBWrite']
     });

@@ -15,7 +15,8 @@ Example :
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppObtainFromSwisher.io", {
+    dbService = new swisher_client.DataBase("AppSecretObtainFromSwisher.io",
+    "AppObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["DBRead", "DBWrite"]
     });
@@ -66,7 +67,8 @@ Document Storage Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    dbService = swisher_client.DataBase("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
+    dbService = new swisher_client.DataBase("AppSecretObtainFromSwisher.io",
+    "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["DBRead", "DBWrite"]
     });
@@ -217,7 +219,8 @@ SMS Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    sms = swisher_client.SMS("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
+    sms = new swisher_client.SMS("AppSecretObtainFromSwisher.io",
+    "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["SMS"]
     });
@@ -274,7 +277,8 @@ Email Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    email = swisher_client.Email("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
+    email = new swisher_client.Email("AppSecretObtainFromSwisher.io",
+    "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["Email"]
     });
@@ -369,7 +373,8 @@ SMS Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    scheduler = swisher_client.Scheduler("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
+    scheduler = new swisher_client.Scheduler("AppSecretObtainFromSwisher.io",
+    "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["SchedulerRead", "SchedulerWrite"]
     });
@@ -597,7 +602,8 @@ Notification Service.
 ```javascript
 
 var swisher_client = require('swisher-client'),
-    notification = swisher_client.Notification("AppSecretObtainFromSwisher.io", "AppIdObtainFromSwisher.io", {
+    notification = new swisher_client.Notification("AppSecretObtainFromSwisher
+    .io", "AppIdObtainFromSwisher.io", {
       grantType : "access_token",
       scope     : ["Notification"]
     });

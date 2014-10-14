@@ -16,12 +16,12 @@ var SMS = require('../lib/SMS'),
   assert = require('assert'),
   testConf = require('./config_test.json');
 
-var SMSService;
+var sms;
 
 describe('NodeJS Swisher Client: ', function () {
 
   before(function (done) {
-    SMSService = SMS.SMS(testConf.testAppSecret, testConf.testAppId, {
+    sms = new SMS.SMS(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
       scope: "test"
     });
@@ -32,7 +32,7 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Email: ', function () {
     it('Send: ', function (done) {
 
-      SMSService.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
+      sms.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return an error. " + JSON.stringify(err));
         } else {
@@ -51,7 +51,7 @@ describe('NodeJS Swisher Client: ', function () {
       var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
         to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
 
-      SMSService.stats(from, to, function (err, result) {
+      sms.stats(from, to, function (err, result) {
         if (err) {
           assert.ok(!err, "Should not return any error object >> " + JSON.stringify(err));
         } else {
