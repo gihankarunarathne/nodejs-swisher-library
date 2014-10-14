@@ -2,7 +2,7 @@
   "name": "swisher-client",
   "description": "Coming Soon - NodeJS Client library of Swisher platform",
   "version": "0.2.4",
-  "homepage": "https://github.com/gihankarunarathne/nodejs-swisher-library/wiki",
+  "homepage": "http://code.thinkcube.net/swisher/nodejs-swisher-library/wiki",
   "author": {
     "name": "Gihan Karunarathne",
     "email": "gckarunarathne@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gihankarunarathne/nodejs-swisher-library.git"
+    "url": "git@code.thinkcube.net:swisher/nodejs-swisher-library.git"
   },
   "bugs": {
-    "url": "https://github.com/gihankarunarathne/nodejs-swisher-library/issues"
+    "url": "http://code.thinkcube.net/swisher/nodejs-swisher-library/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/gihankarunarathne/nodejs-swisher-library/blob/master/LICENSE-MIT"
+      "url": "http://code.thinkcube.net/swisher/nodejs-swisher-library/blob/master/LICENSE-MIT"
     }
   ],
   "main": "lib/swisher-client",
