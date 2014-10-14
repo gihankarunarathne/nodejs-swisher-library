@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@code.thinkcube.net:swisher/nodejs-swisher-library.git"
+    "url": "http://code.thinkcube.net/swisher/nodejs-swisher-library.git"
   },
   "bugs": {
     "url": "http://code.thinkcube.net/swisher/nodejs-swisher-library/issues"
