@@ -24,13 +24,13 @@ describe('NodeJS Swisher Client: ', function () {
   before(function (done) {
     sms = new SMS.SMS(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
-      scope: "test"
+      scope: ["SMS"]
     });
     console.log("Start Tests");
     done();
   });
 
-  describe('Email: ', function () {
+  describe('SMS: ', function () {
     it('Send: ', function (done) {
 
       sms.send(testConf.testMobileNum, 'test_sms_msg', function (err, result) {
@@ -45,7 +45,7 @@ describe('NodeJS Swisher Client: ', function () {
     })
   });
 
-  describe('Statistics: ', function () {
+  describe('SMS: ', function () {
 
     it('Stats: ', function (done) {
       var d = new Date(Date.now()-30*24*60*60*1000);
