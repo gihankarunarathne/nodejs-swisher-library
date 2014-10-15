@@ -18,11 +18,12 @@ var Email = require('../lib/Email'),
 var emailService;
 
 describe('NodeJS Swisher Client: ', function () {
+  this.timeout(15000); // Increase timeout for remote server
 
   before(function (done) {
     emailService = new Email.Email(testConf.testAppSecret, testConf.testAppId, {
       grantType: "access_token",
-      scope: ["EmailSend"]
+      scope: ["Email"]
     });
     console.log("Start Tests");
     done();
@@ -62,9 +63,11 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Statistics: ', function () {
 
     it('Stats: ', function (done) {
-      var d = new Date();
-      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
-        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      var d = new Date(Date.now()-30*24*60*60*1000);
+      var from = d.toISOString().split('T')[0];
+
+      d = new Date(Date.now()+30*24*60*60*1000);
+      var to = d.toISOString().split('T')[0];
 
       emailService.stats(from, to, function (err, result) {
         if (err) {

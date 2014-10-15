@@ -19,6 +19,7 @@ var SMS = require('../lib/SMS'),
 var sms;
 
 describe('NodeJS Swisher Client: ', function () {
+  this.timeout(15000); // Increase timeout for remote server
 
   before(function (done) {
     sms = new SMS.SMS(testConf.testAppSecret, testConf.testAppId, {
@@ -47,9 +48,11 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Statistics: ', function () {
 
     it('Stats: ', function (done) {
-      var d = new Date();
-      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
-        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      var d = new Date(Date.now()-30*24*60*60*1000);
+      var from = d.toISOString().split('T')[0];
+
+      d = new Date(Date.now()+30*24*60*60*1000);
+      var to = d.toISOString().split('T')[0];
 
       sms.stats(from, to, function (err, result) {
         if (err) {

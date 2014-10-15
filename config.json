@@ -1,17 +1,17 @@
 {
   "databaseHost" : "database.swisher.io",
-  "databasePort" : "80",
+  "databasePort" : 443,
 
   "smsHost" : "sms.swisher.io",
-  "smsPort" : "80",
+  "smsPort" : 443,
 
   "emailHost" : "email.swisher.io",
-  "emailPort" : "80",
+  "emailPort" : 443,
 
   "notificationHost" : "notification.swisher.io",
-  "notificationPort" : "80",
+  "notificationPort" : 443,
 
   "schedulerHost" : "scheduler.swisher.io",
-  "schedulerPort" : "80"
+  "schedulerPort" : 443
 }
 

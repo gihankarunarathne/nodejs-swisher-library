@@ -21,6 +21,7 @@ var DataBase = require('../lib/DataBase'),
 var dbService;
 
 describe('NodeJS Swisher Client: ', function () {
+  this.timeout(15000); // Increase timeout for remote server
 
   before(function (done) {
     dbService = new DataBase.DataBase(testConf.testAppSecret, testConf.testAppId, {
@@ -119,9 +120,11 @@ describe('NodeJS Swisher Client: ', function () {
   describe('Statistics: ', function () {
 
     it('Connections: ', function (done) {
-      var d = new Date();
-      var from = d.getFullYear() + "-" + (d.getMonth() - 1) + "-" + d.getDate(),
-        to = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      var d = new Date(Date.now()-30*24*60*60*1000);
+      var from = d.toISOString().split('T')[0];
+
+      d = new Date(Date.now()+30*24*60*60*1000);
+      var to = d.toISOString().split('T')[0];
 
       dbService.connections(from, to, function (err, result) {
         if (err) {

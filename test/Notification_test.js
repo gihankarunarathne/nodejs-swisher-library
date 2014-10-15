@@ -4,6 +4,7 @@ describe('Notification swisher client', function(){
   var testConf = require('./config_test.json');
 
   var notifService;
+  this.timeout(15000); // Increase timeout for remote server
 
   before(function (done) {
     notifService = new Notifications.Notification(testConf.testAppSecret, testConf.testAppId, {
